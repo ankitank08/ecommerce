@@ -11,7 +11,7 @@ router.route('/products/all').get(getProducts);
 router.route('/admin/products').get(isAuthenticatedUser, authorizeRoles("admin"), getAdminProducts, validateProduct);
 router.route('/admin/product/new').post(isAuthenticatedUser, authorizeRoles("admin"), createProduct, validateProduct);
 
-router.route('/admin/product/:id')
+router.route('/admin/products/:id')
     .put(isAuthenticatedUser, authorizeRoles("admin"), updateProduct)
     .delete(isAuthenticatedUser, authorizeRoles("admin"), deleteProduct);
 
@@ -22,5 +22,7 @@ router.route('/review').put(isAuthenticatedUser, createProductReview);
 router.route('/admin/reviews')
     .get(getProductReviews)
     .delete(isAuthenticatedUser, deleteReview);
+
+router.route('/products').post(validateProduct, createProduct);
 
 module.exports = router;

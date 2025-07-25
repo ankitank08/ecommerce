@@ -9,7 +9,7 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
 });
 
-// connectDatabase();
+connectDatabase();
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
@@ -18,7 +18,7 @@ cloudinary.config({
 });
 
 const server = app.listen(PORT, () => {
-    console.log(`Server running`)
+    console.log(`Server running on: ${PORT}`);
 });
 
 // Unhandled Promise Rejection

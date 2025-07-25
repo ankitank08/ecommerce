@@ -20,7 +20,7 @@ exports.getAllProducts = asyncErrorHandler(async (req, res, next) => {
 
     searchFeature.pagination(resultPerPage);
 
-    products = await searchFeature.query.clone();
+    products = await searchFeature.query;
 
     res.status(200).json({
         success: true,
